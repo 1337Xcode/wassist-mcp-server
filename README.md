@@ -113,6 +113,8 @@ Then add `https://your-address/mcp` as a custom connector and click Connect. A s
 
 If Claude offers a Request headers option when you add the connector, you can skip the sign-in page. Choose No sign-in and add an `x-api-key` header with your key.
 
+In ChatGPT, add the server as a developer-mode app. Plus and Pro plans can only use the read tools there, while Business, Enterprise and Edu get them all.
+
 [docs/clients.md](docs/clients.md) has step-by-step setup for each client and says which setups have been tested.
 
 ## Choose which tools load
