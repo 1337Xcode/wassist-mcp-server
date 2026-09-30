@@ -1,6 +1,12 @@
 # Contributing
 
-Thanks for helping. Small fixes, new tools, client guides and bug reports are all welcome. If you are unsure whether an idea fits, open an issue first and describe the workflow you want in Wassist terms.
+Thanks for helping. Small fixes, new tools, client guides and bug reports are all welcome.
+
+## Start with an issue
+
+Every change starts as an issue, so we agree on the problem before anyone writes code. Pick the template that fits: a bug, a feature, or a docs problem. For a feature, describe the workflow you want in Wassist terms rather than the code you have in mind. Wait for a reply on the issue before you start on anything large.
+
+Then open a pull request that links it with `Closes #<number>` at the top of the description, as the template shows. A check fails on any pull request that does not close an open issue, and `main` only accepts changes through a pull request with passing checks and an approving review.
 
 ## Get set up
 
@@ -58,6 +64,6 @@ Write plain, specific sentences. Use sentence case for headings, avoid dashes as
 
 ## Pull requests
 
-Keep each pull request to one change. The template lists the checks to run. Describe what changed and why, and update `CHANGELOG.md` for user-visible changes. Maintainers merge when CI is green and a review is done.
+Keep each pull request to one change and one issue. The template lists the checks to run. Describe what changed and why, and update `CHANGELOG.md` for user-visible changes. A maintainer merges once CI and the linked-issue check pass and the change is approved.
 
 Report security problems privately, as [SECURITY.md](SECURITY.md) describes.

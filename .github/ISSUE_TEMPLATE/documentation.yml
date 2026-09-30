@@ -1,0 +1,18 @@
+name: Documentation
+description: Something in the docs is wrong, out of date or missing
+labels: [documentation]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: The file or section, for example docs/clients.md, Claude.ai.
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong or missing
+      description: If a client's steps no longer match its app, say what you saw instead. Never paste a real API key.
+    validations:
+      required: true

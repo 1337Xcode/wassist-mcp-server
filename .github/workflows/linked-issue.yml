@@ -1,0 +1,35 @@
+name: Linked issue
+
+# Every pull request starts from an issue, so each change has an agreed reason before review.
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+
+permissions:
+  issues: read
+  pull-requests: read
+
+jobs:
+  linked-issue:
+    # Dependabot opens its own update pull requests without an issue.
+    if: github.event.pull_request.user.login != 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check that the pull request closes an open issue
+        env:
+          # Passed through the environment, never interpolated into the script, so the text can't run.
+          BODY: ${{ github.event.pull_request.body }}
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          number=$(printf '%s' "$BODY" | grep -oiE '\b(close[sd]?|fix(e[sd])?|resolve[sd]?) #[0-9]+' | head -n 1 | grep -oE '[0-9]+$' || true)
+          if [ -z "$number" ]; then
+            echo "::error::Link the issue this pull request resolves by adding a line such as 'Closes #12' to its description. Open an issue first if there isn't one."
+            exit 1
+          fi
+          kind=$(gh api "repos/$REPO/issues/$number" --jq 'if .pull_request then "pull request" else .state end' 2>/dev/null || echo "missing")
+          if [ "$kind" != "open" ]; then
+            echo "::error::#$number is not an open issue in this repository ($kind). Link an open issue."
+            exit 1
+          fi
+          echo "Resolves issue #$number."

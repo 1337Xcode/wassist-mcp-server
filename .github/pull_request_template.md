@@ -1,6 +1,12 @@
+Closes #<!-- issue number. Every pull request starts from an issue, and a check fails without one. -->
+
 ## What changed and why
 
-<!-- One or two sentences. Link the issue if there is one. -->
+<!-- One or two sentences. -->
+
+## How it was tested
+
+<!-- The tests you added or ran, and anything you checked by hand. -->
 
 ## Checks
 
