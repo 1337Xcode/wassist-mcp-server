@@ -4,9 +4,9 @@ Thanks for helping. Small fixes, new tools, client guides and bug reports are al
 
 ## Start with an issue
 
-Every change starts as an issue, so we agree on the problem before anyone writes code. Pick the template that fits: a bug, a feature, or a docs problem. For a feature, describe the workflow you want in Wassist terms rather than the code you have in mind. Wait for a reply on the issue before you start on anything large.
+Every change starts as an issue, so we agree on the problem before anyone spends time on code. Pick the template that fits: a bug, a feature, or a docs problem. A couple of sentences is enough, even for a typo. For anything larger than a small fix, wait for a reply on the issue before you start.
 
-Then open a pull request that links it with `Closes #<number>` at the top of the description, as the template shows. A check fails on any pull request that does not close an open issue, and `main` only accepts changes through a pull request with passing checks and an approving review.
+Then open a pull request with `Closes #<number>` at the top, which the template already has a place for. That's the only rule a check enforces on you. The rest is ordinary CI, and when something like the generated tool docs is out of date, the failing test names the command that fixes it.
 
 ## Get set up
 
@@ -64,6 +64,6 @@ Write plain, specific sentences. Use sentence case for headings, avoid dashes as
 
 ## Pull requests
 
-Keep each pull request to one change and one issue. The template lists the checks to run. Describe what changed and why, and update `CHANGELOG.md` for user-visible changes. A maintainer merges once CI and the linked-issue check pass and the change is approved.
+Keep each pull request to one change and one issue. The template lists the checks to run. Describe what changed and why, and update `CHANGELOG.md` for user-visible changes. Once CI passes, a maintainer reviews it and merges it.
 
 Report security problems privately, as [SECURITY.md](SECURITY.md) describes.

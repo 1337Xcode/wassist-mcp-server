@@ -15,7 +15,7 @@ body:
       label: Version
       description: The version in package.json, or the release you installed.
     validations:
-      required: true
+      required: false
   - type: dropdown
     id: install
     attributes:
