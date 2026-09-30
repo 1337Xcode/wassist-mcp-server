@@ -68,10 +68,10 @@
   "devDependencies": {
     "@biomejs/biome": "2.5.14",
     "@modelcontextprotocol/client": "2.0.0",
-    "@types/node": "22.20.4",
+    "@types/node": "26.6.2",
     "esbuild": "0.28.2",
     "knip": "6.37.0",
-    "typescript": "6.0.3",
-    "vitest": "4.1.11"
+    "typescript": "7.0.2",
+    "vitest": "5.0.1"
   }
 }
