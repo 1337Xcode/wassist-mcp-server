@@ -1,0 +1,55 @@
+{
+  "manifest_version": "0.3",
+  "name": "wassist-mcp-server",
+  "display_name": "Wassist",
+  "description": "Build and run WhatsApp agents on Wassist: agents and their tools, MCP connectors, handoffs, automated tests, phone numbers, conversations and message templates.",
+  "long_description": "Wassist MCP server for Claude Desktop. Create and tune Wassist agents, give them API tools, web pages, MCP connectors and handoffs, test them against simulated customers, route WhatsApp numbers to them, read conversations and manage message templates. Your API key is stored in the system keychain. Tools that change data or message customers are separate from tools that only read, and read-only mode hides them all.",
+  "author": {
+    "name": "1337Xcode",
+    "url": "https://github.com/1337Xcode"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1337Xcode/wassist-mcp-server"
+  },
+  "homepage": "https://github.com/1337Xcode/wassist-mcp-server#readme",
+  "documentation": "https://github.com/1337Xcode/wassist-mcp-server#readme",
+  "support": "https://github.com/1337Xcode/wassist-mcp-server/issues",
+  "license": "MIT",
+  "keywords": ["mcp", "wassist", "whatsapp", "ai-agents", "messaging", "chatbot"],
+  "icon": "icon.png",
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/server/index.mjs"],
+      "env": {
+        "WASSIST_API_KEY": "${user_config.api_key}",
+        "WASSIST_READ_ONLY": "${user_config.read_only}"
+      }
+    }
+  },
+  "user_config": {
+    "api_key": {
+      "type": "string",
+      "title": "Wassist API key",
+      "description": "Create one in the Wassist dashboard under Settings, Developers, API keys. It can act for your whole organization.",
+      "sensitive": true,
+      "required": true
+    },
+    "read_only": {
+      "type": "boolean",
+      "title": "Read-only mode",
+      "description": "Hide every tool that changes data or sends messages.",
+      "default": false,
+      "required": false
+    }
+  },
+  "compatibility": {
+    "platforms": ["darwin", "win32"],
+    "runtimes": {
+      "node": ">=22.0.0"
+    }
+  }
+}

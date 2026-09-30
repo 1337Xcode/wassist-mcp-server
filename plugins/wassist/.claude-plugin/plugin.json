@@ -1,0 +1,39 @@
+{
+  "name": "wassist",
+  "displayName": "Wassist",
+  "version": "0.1.0",
+  "description": "Build and run WhatsApp agents on Wassist from Claude: agents and their tools, MCP connectors, handoffs, automated tests, phone numbers, conversations and message templates.",
+  "author": {
+    "name": "1337Xcode",
+    "url": "https://github.com/1337Xcode"
+  },
+  "homepage": "https://github.com/1337Xcode/wassist-mcp-server#readme",
+  "repository": "https://github.com/1337Xcode/wassist-mcp-server",
+  "license": "MIT",
+  "keywords": ["mcp", "wassist", "whatsapp", "ai-agents", "messaging", "chatbot"],
+  "userConfig": {
+    "api_key": {
+      "type": "string",
+      "title": "Wassist API key",
+      "description": "Create one in the Wassist dashboard under Settings, Developers, API keys. It can act for your whole organization.",
+      "sensitive": true,
+      "required": true
+    },
+    "read_only": {
+      "type": "boolean",
+      "title": "Read-only mode",
+      "description": "Hide every tool that changes data or sends messages.",
+      "default": false
+    }
+  },
+  "mcpServers": {
+    "wassist": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/server/index.mjs"],
+      "env": {
+        "WASSIST_API_KEY": "${user_config.api_key}",
+        "WASSIST_READ_ONLY": "${user_config.read_only}"
+      }
+    }
+  }
+}

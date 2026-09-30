@@ -1,0 +1,26 @@
+name: Feature request
+description: Ask for a tool, a client setup or a change
+labels: [enhancement]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: What you want to do
+      description: Describe the workflow in Wassist terms, such as "see which numbers have no agent". A tool idea is fine, but the goal helps more.
+    validations:
+      required: true
+  - type: textarea
+    id: api
+    attributes:
+      label: Wassist API involved
+      description: Link the endpoint in docs.wassist.app if you know it.
+  - type: dropdown
+    id: effect
+    attributes:
+      label: Does it change anything in Wassist?
+      options:
+        - It only reads
+        - It creates or updates something
+        - It messages customers or leaves Wassist
+    validations:
+      required: true

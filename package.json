@@ -1,0 +1,77 @@
+{
+  "name": "wassist-mcp-server",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MCP server that lets AI assistants build and operate WhatsApp agents on Wassist.",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "wassist",
+    "whatsapp",
+    "ai-agents"
+  ],
+  "homepage": "https://github.com/1337Xcode/wassist-mcp-server#readme",
+  "bugs": {
+    "url": "https://github.com/1337Xcode/wassist-mcp-server/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1337Xcode/wassist-mcp-server.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "1337Xcode",
+    "url": "https://github.com/1337Xcode"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "wassist-mcp-server": "dist/bin/stdio.js",
+    "wassist-mcp-server-http": "dist/bin/http.js"
+  },
+  "files": [
+    "dist",
+    "assets/fonts",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "prepare": "npm run build",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "pretest": "npm run build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:live": "node --env-file=.env ./node_modules/vitest/vitest.mjs run --config vitest.live.config.ts",
+    "start": "node dist/bin/stdio.js",
+    "start:http": "node dist/bin/http.js",
+    "serve": "node scripts/serve.mjs",
+    "inspect": "npx @modelcontextprotocol/inspector node dist/bin/stdio.js",
+    "ci": "npm run lint && npm run typecheck && npm run knip && npm test",
+    "docs:tools": "npm run build && node scripts/generate-tool-docs.mjs",
+    "knip": "knip",
+    "build:mcpb": "npm run build && node scripts/build-mcpb.mjs",
+    "version:sync": "node scripts/sync-versions.mjs && npm run build:plugin && biome format --write .",
+    "fixtures:openapi": "node scripts/refresh-openapi-fixture.mjs && biome format --write tests/fixtures",
+    "build:plugin": "npm run build && node scripts/build-plugin-server.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/node": "2.0.0",
+    "@modelcontextprotocol/server": "2.0.0",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.14",
+    "@modelcontextprotocol/client": "2.0.0",
+    "@types/node": "22.20.4",
+    "esbuild": "0.28.2",
+    "knip": "6.37.0",
+    "typescript": "6.0.3",
+    "vitest": "4.1.11"
+  }
+}

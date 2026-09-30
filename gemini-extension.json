@@ -1,0 +1,20 @@
+{
+  "name": "wassist",
+  "version": "0.1.0",
+  "description": "Build and run WhatsApp agents on Wassist: agents and their tools, MCP connectors, handoffs, automated tests, phone numbers, conversations and message templates.",
+  "settings": [
+    {
+      "name": "Wassist API key",
+      "description": "Create one in the Wassist dashboard under Settings, Developers, API keys. It can act for your whole organization.",
+      "envVar": "WASSIST_API_KEY",
+      "sensitive": true
+    }
+  ],
+  "mcpServers": {
+    "wassist": {
+      "command": "node",
+      "args": ["${extensionPath}${/}plugins${/}wassist${/}server${/}index.mjs"],
+      "cwd": "${extensionPath}"
+    }
+  }
+}

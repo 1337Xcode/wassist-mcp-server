@@ -1,0 +1,20 @@
+{
+  "name": "wassist-mcp-server",
+  "interface": {
+    "displayName": "Wassist"
+  },
+  "plugins": [
+    {
+      "name": "wassist",
+      "source": {
+        "source": "local",
+        "path": "./plugins/wassist"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

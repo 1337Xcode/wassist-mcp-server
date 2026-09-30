@@ -1,0 +1,42 @@
+name: Bug report
+description: Something does not work as documented
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: Say what you did, what you expected and what you got. Never paste a real API key or customer data.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: The version in package.json, or the release you installed.
+    validations:
+      required: true
+  - type: dropdown
+    id: install
+    attributes:
+      label: How you run it
+      options:
+        - Claude Desktop extension (.mcpb)
+        - Claude Code or ChatGPT plugin
+        - Gemini CLI extension
+        - npx from GitHub
+        - Built from source
+        - HTTP server with a tunnel or proxy
+    validations:
+      required: true
+  - type: input
+    id: client
+    attributes:
+      label: AI client
+      description: For example Claude Desktop, Claude.ai, ChatGPT, Cursor, Grok.
+  - type: textarea
+    id: logs
+    attributes:
+      label: Server logs
+      description: The JSON lines from stderr around the problem. Remove anything private first.
+      render: json

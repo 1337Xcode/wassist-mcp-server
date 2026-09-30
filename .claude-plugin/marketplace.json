@@ -1,0 +1,28 @@
+{
+  "name": "wassist-mcp-server",
+  "owner": {
+    "name": "1337Xcode",
+    "url": "https://github.com/1337Xcode"
+  },
+  "metadata": {
+    "description": "Community plugin for building and running WhatsApp agents on Wassist.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "wassist",
+      "source": "./plugins/wassist",
+      "description": "Build and run WhatsApp agents on Wassist from your AI assistant.",
+      "version": "0.1.0",
+      "author": {
+        "name": "1337Xcode",
+        "url": "https://github.com/1337Xcode"
+      },
+      "homepage": "https://github.com/1337Xcode/wassist-mcp-server#readme",
+      "repository": "https://github.com/1337Xcode/wassist-mcp-server",
+      "license": "MIT",
+      "keywords": ["mcp", "wassist", "whatsapp", "ai-agents"],
+      "category": "productivity"
+    }
+  ]
+}

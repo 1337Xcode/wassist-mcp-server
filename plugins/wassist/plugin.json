@@ -1,0 +1,35 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "wassist",
+  "version": "0.1.0",
+  "description": "Build and run WhatsApp agents on Wassist from your AI assistant: agents and their tools, MCP connectors, handoffs, automated tests, phone numbers, conversations and message templates.",
+  "author": {
+    "name": "1337Xcode",
+    "url": "https://github.com/1337Xcode"
+  },
+  "homepage": "https://github.com/1337Xcode/wassist-mcp-server#readme",
+  "repository": "https://github.com/1337Xcode/wassist-mcp-server",
+  "license": "MIT",
+  "keywords": ["mcp", "wassist", "whatsapp", "ai-agents", "messaging", "chatbot"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Wassist",
+        "shortDescription": "Build and run WhatsApp agents on Wassist.",
+        "longDescription": "Create and tune Wassist agents, give them API tools, web pages, MCP connectors and handoffs to other agents, test them against simulated customers, route WhatsApp numbers to them, review conversations and manage message templates. Tools that change data or message customers are separate from tools that only read.",
+        "developerName": "1337Xcode",
+        "category": "Productivity",
+        "capabilities": ["Read", "Write"],
+        "websiteURL": "https://github.com/1337Xcode/wassist-mcp-server",
+        "defaultPrompt": [
+          "Use Wassist to build a WhatsApp agent for my business that answers from our website.",
+          "Use Wassist to test my support agent against an angry customer and fix what it gets wrong.",
+          "Use Wassist to review my latest conversation and suggest a better prompt."
+        ],
+        "brandColor": "#25D366",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png"
+      }
+    }
+  }
+}
