@@ -7,6 +7,10 @@ updates:
     # Matches the project rule that a dependency release is at least a week old before it is used.
     cooldown:
       default-days: 7
+    ignore:
+      # The types follow the oldest supported Node.js (22), so newer majors would allow APIs it lacks.
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
     groups:
       dev-tooling:
         dependency-type: development
