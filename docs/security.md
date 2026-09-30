@@ -12,7 +12,7 @@ A Wassist API key acts for a whole organization. It can read every conversation,
 | What can it change? | Only what its tools name, one tool per action. There are no delete tools, no raw API passthrough and no tool that takes a URL to call. |
 | Can I limit it? | `WASSIST_READ_ONLY=true` removes every write tool. `WASSIST_TOOLSETS` loads only the groups you pick. Clients such as Claude let you block single tools as well. |
 | What does it run? | TypeScript on Node.js with three runtime dependencies: the official MCP SDK (`@modelcontextprotocol/server` and `@modelcontextprotocol/node`) and `zod`. With what they pull in, that is six packages. |
-| Is what I download what is in the repository? | Each release carries SHA-256 checksums and a signed build provenance statement for the desktop extension and the plugin bundle. |
+| Is what I download what is in the repository? | Each release lists the SHA-256 checksum of the desktop extension. It and the plugin bundle also carry a signed statement that GitHub Actions built them from this repository. |
 
 ## Check it yourself
 
@@ -26,7 +26,8 @@ grep -rn "backend.wassist.app\|X-API-Key" src
 npm ls --omit=dev --all
 npm audit --omit=dev
 
-# Verify that a downloaded release file was built by this repository's release workflow.
+# Check a downloaded release file against its checksum and its signed build provenance.
+sha256sum -c SHA256SUMS
 gh attestation verify wassist-mcp-server-0.1.0.mcpb --repo 1337Xcode/wassist-mcp-server
 
 # Start it with no way to change anything, and look at the tools in the MCP Inspector.

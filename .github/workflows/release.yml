@@ -26,8 +26,10 @@ jobs:
         run: test "$GITHUB_REF_NAME" = "v$(node -p "require('./package.json').version")"
       - run: npm run ci
       - run: npm run build:mcpb
-      - name: Record checksums of what users download and run
-        run: sha256sum packaging/mcpb/dist/*.mcpb plugins/wassist/server/index.mjs > SHA256SUMS
+      # Plain file names, so `sha256sum -c SHA256SUMS` works next to the downloaded files.
+      - name: Record checksums of the release downloads
+        working-directory: packaging/mcpb/dist
+        run: sha256sum *.mcpb > "$GITHUB_WORKSPACE/SHA256SUMS"
       # Signs a statement that these exact files were built by this workflow from this commit.
       # Anyone can check it with `gh attestation verify <file> --repo 1337Xcode/wassist-mcp-server`.
       - uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
